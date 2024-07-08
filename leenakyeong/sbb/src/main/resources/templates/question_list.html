@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table>
+<thread>
+<tr>
+<th>제목</th>
+<th>작성일지</th>
+</tr>
+</thread>
+<tbody>
+<tr th:each="question : ${questionList}">
+	<td>
+		<a th:href="@{|/question/detail/${question.id}|}"
+		h:text="${question.subject}"></a>
+	</td>
+	<td th:text="${question.createDate}"></td>
+	</tr>
+</tbody>
+</table>
+</body>
+</html>
