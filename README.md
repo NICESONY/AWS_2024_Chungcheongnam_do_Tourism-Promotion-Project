@@ -1,3 +1,3 @@
 # AWS_2024_Chungcheongnam_do_Tourism-Promotion-Project
 
-![팀_프로젝트](https://github.com/NICESONY/AWS_2024_Chungcheongnam_do_Tourism-Promotion-Project/assets/106459423/c49d7104-2b8d-46d6-9b6b-166ad1fcf73b)
+![프로필](https://github.com/NICESONY/AWS_2024_Chungcheongnam_do_Tourism-Promotion-Project/assets/106459423/4bdd1fd7-b9c7-440d-b9d1-992bec5c77b8)
