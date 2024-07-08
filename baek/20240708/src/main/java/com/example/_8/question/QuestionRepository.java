@@ -1,4 +1,4 @@
-package com.example._8;
+package com.example._8.question;
 
 public interface QuestionRepository {
 
