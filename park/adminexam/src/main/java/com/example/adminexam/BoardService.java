@@ -2,6 +2,7 @@ package com.example.adminexam;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,12 @@ public class BoardService {
 	        this.boardRepository.save(board);
 	    }
 	public List <Board>readlist(){
-		return boardRepository.findAll();
+		return boardRepository.findAll();	
+	}
+	public Board readdetail(Integer id) {
 		
+		Optional<Board> o = boardRepository.findById(id);
+		
+		return o.get();
 	}
 }

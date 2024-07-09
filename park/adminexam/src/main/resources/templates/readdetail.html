@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+    <h4 th:text="${board.id}"></h4><br>
+    <h4 th:text="${board.title}"></h4><br>
+    <h6 th:text="${board.content}"></h6><br>     
+    <h6 th:text="${#temporals.format(board.date, 'yyyy-MM-dd HH:mm')}"></h6>
+         
+<br><br>
+<a href="/board/delete">글 삭제</a>
+<a href="/board/update">글 수정</a>
+</div>
+</body>
+</html>

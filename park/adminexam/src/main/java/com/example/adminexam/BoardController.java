@@ -29,9 +29,11 @@ public class BoardController {
 		boardService.create(board);
 		return "redirect:/board/readlist";
 	}
-	@GetMapping("/boarddetail/{no}")
-	public String boarddetail(@PathVariable("no") String no) {
-		System.out.println("넘어온 번호는 "+ no);
-		return "boardlist";
+	@GetMapping("/readdetail/{id}")
+	public String boarddetail(Model model, @PathVariable("id") Integer id) {
+		model.addAttribute("board", boardService.readdetail(id));
+		
+		
+		return "readdetail";
 	}
 }
