@@ -1,5 +1,6 @@
 package com.example.sbb_1.question;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,15 @@ public class QuestionService {
         } else {
             throw new DataNotFoundException("question not found");
         }
+    }
+    public void create(String subject, String content) {
+        Question q = new Question();
+        q.setSubject(subject);
+        q.setContent(content);
+        q.setCreateDate(LocalDateTime.now());
+        this.questionRepository.save(q);
+    }
+    public void delete(Integer id) {
+    	questionRepository.deleteById(id);
     }
 }
