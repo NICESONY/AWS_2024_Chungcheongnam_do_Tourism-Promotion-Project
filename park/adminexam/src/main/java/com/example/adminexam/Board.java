@@ -1,5 +1,14 @@
 package com.example.adminexam;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,11 +16,16 @@ import lombok.Setter;
 @Setter
 @Getter
 @Data
+@Entity
 public class Board {
-	Integer id;
-	String title;
-	String content;
-	Integer date;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	private String title;
+	private String content;
+	private LocalDateTime date;
 	
+	@OneToMany(mappedBy="board", cascade = CascadeType.REMOVE)
+private List<Reply> replyList;
 	
 }
