@@ -1,28 +1,31 @@
 package com.example.adminexam;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@RequestMapping("/board")
 @Controller
 public class BoardController {
-	@GetMapping("/board")
-	public String board() {
-		return "board";
-	}
+	@Autowired
+	private BoardService boardService;
 	
-	@PostMapping("/board")
-	public String board(@ModelAttribute Board board
-			) {
-		System.out.println(board.getTitle());
-		System.out.println(board.getContent());
-		return "index";
+	@GetMapping("/readlist")
+	public String readlist() {
+		return "readlist";
 	}
-	@GetMapping("/boardlist")
-	public String boardlist() {
-		return "boardlist";
+	@GetMapping("/create")
+	public String create() {
+		return "create";
+	}
+	@PostMapping("/create")
+	public String create(@ModelAttribute Board board) {
+		boardService.create(board);
+		return "redirect:/board/readlist";
 	}
 	@GetMapping("/boarddetail/{no}")
 	public String boarddetail(@PathVariable("no") String no) {
