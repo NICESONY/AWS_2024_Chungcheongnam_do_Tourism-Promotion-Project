@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ <form action="/board/update" method="post" >
+ 		<input type="hidden" name="id"th:value="${board.id}">
+		<input type="hidden" name="date"th:value="${board.date}">
+        <div>
+            제목: <input type="text" name="title"th:value="${board.title}">
+        	내용: <input type="text" name="content"th:value="${board.content}">
+        	<input type="submit"value="등록"></div>
+        </form>
+</body>
+</html>

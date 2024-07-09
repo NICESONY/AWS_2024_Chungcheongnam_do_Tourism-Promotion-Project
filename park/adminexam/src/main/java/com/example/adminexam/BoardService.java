@@ -28,4 +28,10 @@ public class BoardService {
 		
 		return o.get();
 	}
+	public void delete(Integer id) {
+		boardRepository.deleteById(id);
+	}
+	public void update(Board board) {
+		boardRepository.save(board);
+	}
 }

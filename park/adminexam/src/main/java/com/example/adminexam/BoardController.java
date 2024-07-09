@@ -36,4 +36,22 @@ public class BoardController {
 		
 		return "readdetail";
 	}
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable("id") Integer id) {
+		boardService.delete(id);
+		
+		
+		return "redirect:/board/readlist";
+	}
+	@GetMapping("/update/{id}")
+	public String update(Model model, @PathVariable("id") Integer id) {
+		model.addAttribute("board", boardService.readdetail(id));		
+		
+		return "update";
+	}
+	@PostMapping("/update")
+	public String update(@ModelAttribute Board board) {
+		boardService.update(board);
+		return "redirect:/board/readlist";
+	}
 }

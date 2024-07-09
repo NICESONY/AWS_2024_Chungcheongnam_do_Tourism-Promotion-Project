@@ -12,8 +12,8 @@
     <h6 th:text="${#temporals.format(board.date, 'yyyy-MM-dd HH:mm')}"></h6>
          
 <br><br>
-<a href="/board/delete">글 삭제</a>
-<a href="/board/update">글 수정</a>
+<a th:href="@{|/board/delete/${board.id}|}">글 삭제</a>
+<a th:href="@{|/board/update/${board.id}|}">글 수정</a>
 </div>
 </body>
 </html>
