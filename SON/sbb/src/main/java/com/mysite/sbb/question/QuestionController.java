@@ -56,5 +56,20 @@ public class QuestionController {
         
     	return "redirect:/question/list"; // 질문 저장후 질문목록으로 이동
     	// redirect 주소창에 던지는 것 html을 호출하는 것 아님 경우의 수는 2개 html이냔 redirectㅑ
+    	
+    	
     }
+    
+    
+    
+    @GetMapping(value = "/delete/{id}")
+    public String delete(Model model, @PathVariable("id") Integer id) {
+        
+    	
+    	questionService.delete(id);
+       
+    	
+    	return "redirect:/question/list";
+
+        }
 }
