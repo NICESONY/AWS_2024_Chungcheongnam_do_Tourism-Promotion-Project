@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+
+	
+
+	<!-- create -->
+	<h1 th:text="${question.subject}"></h1>
+	<div th:text="${question.content}"></div>
+	
+	<!-- 답변의 갯수를 출력할 수 있다. -->
+	<h5 th:text="|${#lists.size(question.answerList)}개의 답변이 있습니다.|"></h5>
+	
+	 <!-- answerlist -->
+	 <ul>
+        <li th:each="answer : ${question.answerList}" th:text="${answer.content}"></li>
+    </ul>
+		
+
+	<form th:action="@{|/answer/create/${question.id}|}" method="post">
+    <textarea name="content" id="content" rows="15"></textarea>
+    <input type="submit" value="답변등록">
+</form>
+
+</body>
+</html>
