@@ -30,7 +30,8 @@ implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	 testImplementation 'org.junit.jupiter:junit-jupiter' 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+    
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect' // 뷰에서 많이 사용된다. 타임리프는 수동으로 넣어주는 것이 있다.
 }
 
 tasks.named('test') {
