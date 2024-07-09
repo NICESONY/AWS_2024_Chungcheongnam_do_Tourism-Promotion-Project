@@ -1,6 +1,7 @@
 package com.example.adminexam;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,4 +18,8 @@ public class BoardService {
 	        board.setDate(LocalDateTime.now());
 	        this.boardRepository.save(board);
 	    }
+	public List <Board>readlist(){
+		return boardRepository.findAll();
+		
+	}
 }

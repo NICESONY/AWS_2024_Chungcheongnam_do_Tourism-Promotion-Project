@@ -5,17 +5,28 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <h5 class="my-3 border-bottom pb-2">질문등록</h5>
-    <form th:action="@{/board/create}" method="post">
-        <div class="mb-3">
-            <label for="title" class="form-label">제목</label>
-            <input type="text" name="title" id="title" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label for="content" class="form-label">내용</label>
-            <textarea name="content" id="content" class="form-control" rows="10"></textarea>
-        </div>
-        <input type="submit" value="저장하기" class="btn btn-primary my-2">
-    </form>
+ <div class="container my-3">
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성일시</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="board, loop : ${boards}">
+                <td th:text="${loop.count}"></td>
+                <td>
+                    <a th:href="@{|/board/readdetail/${board.id}|}" th:text="${board.title}"></a>
+                </td>
+                <td th:text="${#temporals.format(board.Date, 'yyyy-MM-dd HH:mm')}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/board/create" class="btn btn-primary">글 작성</a>
+    
+</div>
+
     </body>
 </html>

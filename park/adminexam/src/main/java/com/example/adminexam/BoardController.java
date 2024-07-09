@@ -2,6 +2,7 @@ package com.example.adminexam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +16,8 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@GetMapping("/readlist")
-	public String readlist() {
+	public String readlist(Model model) {
+		model.addAttribute("boards", boardService.readlist());
 		return "readlist";
 	}
 	@GetMapping("/create")
