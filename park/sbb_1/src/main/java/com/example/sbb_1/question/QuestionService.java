@@ -1,9 +1,11 @@
-package com.example.sbb_1;
+package com.example.sbb_1.question;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.sbb_1.DataNotFoundException;
 
 @Service
 public class QuestionService {
