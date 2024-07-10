@@ -32,6 +32,8 @@ public class QuestionController {
         return "question_list";
     } 
         
+    
+    
     @GetMapping(value = "/detail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id) {
         
@@ -72,4 +74,27 @@ public class QuestionController {
     	return "redirect:/question/list";
 
         }
+    
+    @GetMapping("/update")
+    public String update() {
+       return "update_question_form";
+        }
+    
+    
+    @PostMapping("/update")
+    public String update(@RequestParam(value="subject") String subject, @RequestParam(value="content") String content) {
+        
+    	// TODO 질문을 저장한다.
+    	this.questionService.update(subject, content);
+        
+    	return "redirect:/question/list"; // 질문 저장후 질문목록으로 이동
+    	// redirect 주소창에 던지는 것 html을 호출하는 것 아님 경우의 수는 2개 html이냔 redirectㅑ
+    	
+    	
+    } 
+    
+    
+    
+    
+    
 }
