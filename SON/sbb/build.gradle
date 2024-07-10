@@ -24,6 +24,7 @@ repositories {
 }
 
 dependencies {
+
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
@@ -35,10 +36,12 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	testImplementation 'org.junit.jupiter:junit-jupiter'
-	
-	
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect' // 뷰에서 많이 사용된다. 타임리프는 수동으로 넣어주는 것이 있다.
 
+	// 사진을 사용하기 위한 라이브러리이다.
+	// https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
+	implementation group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.529'
+	
 }
 
 tasks.named('test') {
