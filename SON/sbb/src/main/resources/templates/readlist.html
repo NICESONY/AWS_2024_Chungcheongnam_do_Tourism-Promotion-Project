@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+        <div th:each="notice : ${notices}">
+            <img th:src="|${downpath}/${notice.image1}|" height="500px">
+            [[${notice.title}]]
+            <br>
+        </div>
+        
+        
+</body>
+</html>
