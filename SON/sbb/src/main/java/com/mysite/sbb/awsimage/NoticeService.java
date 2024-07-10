@@ -1,6 +1,7 @@
 package com.mysite.sbb.awsimage;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,21 @@ public class NoticeService {
 		UUID uuid = UUID.randomUUID();
 		String fileName1 = uuid + "_" + file1.getOriginalFilename();
 		
+		
 		s3service.uploadFile(file1, fileName1);
 		
 		notice.setImage1(fileName1);
 		
 		noticeRepostitoty.save(notice);
 	}
+	
+	
+	
+	public List<Notice> readlist(){
+		return noticeRepostitoty.findAll();
+		
+	}
+	
+	
 
 }

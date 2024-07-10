@@ -3,9 +3,12 @@ package com.mysite.sbb.awsimage;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,9 +19,13 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
+	
+	@Value("${cloud.aws.s3.endpoint}")
+	private String downpath;
+	
 
 		
-	@GetMapping("/")
+	@GetMapping("/index")
 	public String index() {
 		return "index";
 		
@@ -31,17 +38,24 @@ public class NoticeController {
 		}
 	
 	
-	@GetMapping("/create")
+	@PostMapping("/create")
 	public String create(@ModelAttribute Notice notice,
-						 @RequestParam("image1") MultipartFile file1
+						 @RequestParam("file") MultipartFile file
 			) throws IOException {
 		
-		noticeService.create(notice, file1);
-		return "redirect:/";
+		noticeService.create(notice, file);
+		return "redirect:/index";
 		
 		}
 	
-
+	
+	@GetMapping("/readlist")
+	public String readlist(Model model) {
+		model.addAttribute("notices", noticeService.readlist());
+		model.addAttribute("downpath", "https://" + downpath);
+		return "readlist";
+		
+	}
 	
 	
 	
