@@ -32,6 +32,7 @@ public class QuestionService {
         this.questionRepository.save(q);
     }
     
+    
     public void delete(Integer id) {
     	questionRepository.deleteById(id);
     	

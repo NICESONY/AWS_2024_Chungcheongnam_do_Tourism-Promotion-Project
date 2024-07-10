@@ -1,6 +1,7 @@
 package com.mysite.sbb.awsimage;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -31,6 +32,7 @@ public class NoticeService {
 		s3service.uploadFile(file1, fileName1);
 		
 		notice.setImage1(fileName1);
+		notice.setCreateDate(LocalDateTime.now());
 		
 		noticeRepostitoty.save(notice);
 	}

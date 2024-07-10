@@ -1,5 +1,7 @@
 package com.mysite.sbb.awsimage;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,6 +26,9 @@ public class Notice {
 	
 	
 	private String image1;
+	
+	
+	private LocalDateTime createDate; 
 	
 	
 	
