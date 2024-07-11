@@ -49,8 +49,8 @@ customer.setCdate(LocalDateTime.now());
 BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 customer.setPassword(passwordEncoder.encode(customer.getPassword()));
 customerRepository.save(customer);
-
 }
+
 public Customer authen() {
 	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 	UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -59,7 +59,5 @@ public Customer authen() {
 	Optional<Customer> oc = customerRepository.findByusername(username);//username
 
 	return oc.get();
-
 }
-
 }

@@ -12,13 +12,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
-@Data
 @Entity
+@Data
 public class Board {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer cid;
+private Integer id;
 
 private String title;
 private String content;

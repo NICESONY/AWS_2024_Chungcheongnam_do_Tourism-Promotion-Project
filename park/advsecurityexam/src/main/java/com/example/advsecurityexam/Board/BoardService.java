@@ -14,6 +14,7 @@ public class BoardService {
 	private BoardRepository boardRepository;
 	@Autowired
 	private CustomerService customerService;
+	
 	public void create(Board board) {
 		board.setCustomer(customerService.authen());
 		board.setDate(LocalDateTime.now());

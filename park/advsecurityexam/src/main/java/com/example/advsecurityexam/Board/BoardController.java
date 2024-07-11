@@ -6,12 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+
 @RequestMapping("/board")
 @Controller
 public class BoardController {
 	
 	@Autowired
-	BoardService boardService;
+	private BoardService boardService;
 	@GetMapping("/create")
 	public String create() {
 		return "board/create";
@@ -19,6 +20,6 @@ public class BoardController {
 	@PostMapping("/create")
 	public String create(Board board) {
 		boardService.create(board);
-		return "redirect:/board/create";
+		return "redirect:/";
 	}
 }
