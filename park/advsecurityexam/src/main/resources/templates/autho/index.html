@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<span sec:authorize="isAnonymous()">Signin First...<a href="/signin">Sign in</a></span>
+<span sec:authorize="isAuthenticated()">Welcome...<span th:text="${#authentication.name}"></span>
+<span th:text="${#authentication.authorities}"></span>
+<a href="/signout">Sign out</a>
+</span>
+<p><a href="/admin">admin</a>
+<p><a href="/manager">manager</a>
+<p><a href="/user">user</a>
+<p><a href="/board/create">게시판</a>
+
+</body>
+</html>

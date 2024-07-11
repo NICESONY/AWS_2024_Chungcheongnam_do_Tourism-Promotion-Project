@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/board/create" method="post">
+	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+<p>제목: <input type="text" name="title">
+<p>내용: <input type="text" name="content">
+<p><input type="submit" value="등록">
+</form>
+</body>
+</html>
