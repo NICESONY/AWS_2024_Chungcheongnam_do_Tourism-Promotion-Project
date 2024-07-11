@@ -12,3 +12,5 @@ SON/sbb/src/main/java/com/mysite/sbb/awsimage/S3Config.java
 park/sbb/src/main/java/com/mysite/sbb/SecurityConfig.java
 park/sbb/src/main/resources/application.properties
 park/sbb/src/main/resources/templates/layout.html
+park/bucketexample/gradle/wrapper/gradle-wrapper.properties
+park/bucketexample/src/main/resources/application.properties
