@@ -1,0 +1,10 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container my-3">
+<form action="/create" method="post"enctype="multipart/form-data">
+<p>	제목: <input type="text" name="title">
+<p>	내용: <input type="text" name="content">
+<p>	<input type="file" name="file">
+<p>	<input type="submit" value="등록">
+</form>
+</div>
+</html>

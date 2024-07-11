@@ -14,26 +14,25 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 
-@Data
 @Entity
-public class Question { 
+@Data
+public class Question {
 	
-    @Id 
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Integer id; 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    @Column(length = 200) 
-    private String subject; 
+    @Column(length = 200)
+    private String subject;
 
-    @Column(columnDefinition = "TEXT") 
-    private String content; 
+    @Column(columnDefinition = "TEXT")
+    private String content;
 
-    private LocalDateTime createDate; 
-    
+    private LocalDateTime createDate;
     
     private String image1;
     
-
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE) 
     private List<Answer> answerList; 
+    
 }

@@ -1,0 +1,14 @@
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+park/bucketexample/src/main/java/com/example/bucketexample/S3Config.java
+park/sbb/src/main/java/com/mysite/sbb/S3Config.java
+=======
+SON/sbb/src/main/java/com/mysite/sbb/awsimage/S3Config.java
+>>>>>>> 300e464bb661972dad8aacd0407c55cddd41f7ad
+=======
+SON/sbb/src/main/java/com/mysite/sbb/awsimage/S3Config.java
+>>>>>>> 300e464bb661972dad8aacd0407c55cddd41f7ad
+park/sbb/src/main/java/com/mysite/sbb/SecurityConfig.java
+park/sbb/src/main/resources/application.properties
+park/sbb/src/main/resources/templates/layout.html

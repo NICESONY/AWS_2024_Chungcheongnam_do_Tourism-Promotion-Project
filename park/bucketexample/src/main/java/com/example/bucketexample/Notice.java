@@ -1,6 +1,4 @@
-package com.mysite.sbb.awsimage;
-
-import java.time.LocalDateTime;
+package com.example.bucketexample;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,29 +9,14 @@ import lombok.Data;
 @Data
 @Entity
 public class Notice {
-	
-	
 	@Id
-	@GeneratedValue(strategy =  GenerationType.IDENTITY)
-	
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	
 	
 	private String title;
 	
-	
 	private String content;
-	
 	
 	private String image1;
 	
-	
-	private LocalDateTime createDate; 
-	
-	
-	
-	
-
 }

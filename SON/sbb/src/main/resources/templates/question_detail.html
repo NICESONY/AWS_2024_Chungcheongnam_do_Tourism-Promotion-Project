@@ -1,12 +1,17 @@
 <html layout:decorate="~{layout}">
 <div layout:fragment="content" class="container my-3">
 
+
+
 <div class="container my-3">
     <!-- 질문 -->
     <h2 class="border-bottom py-2" th:text="${question.subject}"></h2>
     <div class="card my-3">
         <div class="card-body">
             <div class="card-text" style="white-space: pre-line;" th:text="${question.content}"></div>
+            
+            <img th:src= "|${downpath}/${question.image1}|">
+            
             <div class="d-flex justify-content-end">
                 <div class="badge bg-light text-dark p-2 text-start">
                     <div th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></div>
