@@ -1,4 +1,4 @@
-package com.mysite.sbb;
+package com.mysite.homework7;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -21,22 +21,15 @@ public class S3Service {
 	@Autowired
 	private AmazonS3 amazonS3;
 	
-	public void uploadFile(MultipartFile multipartFile, String fileName) throws IOException {
-		
-		// 현재 서버에 임시 저장
+	public void uploadFile(MultipartFile multipartFile, String fileName) throws IOException{
 		File file = new File(multipartFile.getOriginalFilename());
 		
-		try (FileOutputStream fos = new FileOutputStream(file)) {
+		try (FileOutputStream fos = new FileOutputStream(file)){
 			fos.write(multipartFile.getBytes());
 		}
-		
-		
-		// AWS 전송 - UUID 적용 버전, uuid로 적용된 파일이름을 가져와서 사용한다. 
-		//String fileName = System.currentTimeMillis() + "_" + 
-		//				  multipartFile.getOriginalFilename();
+//		String fileName = System.currentTimeMillis() + "_" + 
+//						  multipartFile.getOriginalFilename();
 		amazonS3.putObject(new PutObjectRequest(bucketName, fileName, file));
-		
-		// 임시 저장된 사진 삭제
 		file.delete();
-	}	
+	}
 }
