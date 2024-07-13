@@ -21,14 +21,18 @@ public class NoticeService1 {
 
 	public void createnotice(Notice1 notice, MultipartFile file1, MultipartFile file2, MultipartFile file3) throws IOException {
 		
-		s3service.uploadFile(file1, file1.getOriginalFilename());
-		s3service.uploadFile(file2, file2.getOriginalFilename());
-		s3service.uploadFile(file3, file3.getOriginalFilename());
-		
-		notice.setImage1( file1.getOriginalFilename());
-		notice.setImage2( file2.getOriginalFilename());
-		notice.setImage3( file3.getOriginalFilename());
-			
+		if(!file1.isEmpty()) {
+			s3service.uploadFile(file1, file1.getOriginalFilename());
+			notice.setImage1(file1.getOriginalFilename());
+		}
+		if(!file2.isEmpty()) {
+			s3service.uploadFile(file2, file2.getOriginalFilename());
+			notice.setImage2(file2.getOriginalFilename());
+		}
+		if(!file3.isEmpty()) {
+			s3service.uploadFile(file3, file3.getOriginalFilename());
+			notice.setImage3(file3.getOriginalFilename());
+		}
 		notice.setDate(LocalDateTime.now());
 		this.nr.save(notice);
 	}
