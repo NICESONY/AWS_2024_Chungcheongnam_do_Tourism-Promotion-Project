@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mysite.sbb.question.Question;
-import com.mysite.sbb.question.QuestionService;
+import com.mysite.sbb.question.QuestionGoogleService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class AnswerController {
 
-    private final QuestionService questionService;
+    private final QuestionGoogleService questionService;
     private final AnswerService answerService;
     
     @PostMapping("/create/{id}")

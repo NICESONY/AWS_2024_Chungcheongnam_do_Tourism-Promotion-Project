@@ -24,7 +24,7 @@ public class QuestionController {
 	private QuestionRepository questionRepository;
 	
 	@Autowired
-	private QuestionService questionService;
+	private QuestionGoogleService questionService;
 	
 	@Value("${cloud.aws.s3.endpoint}")
 	private String downpath;
