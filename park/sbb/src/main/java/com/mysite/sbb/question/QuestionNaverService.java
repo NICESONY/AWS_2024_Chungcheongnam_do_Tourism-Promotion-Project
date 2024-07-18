@@ -2,6 +2,7 @@ package com.mysite.sbb.question;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -78,4 +79,17 @@ public class QuestionNaverService implements QuestionService{
     public void delete(Integer id) {
     	questionRepository.deleteById(id);
     }
+
+
+	public List<Question> readlist() {
+		// TODO Auto-generated method stub
+		return questionRepository.findAll();
+	}
+
+
+	@Override
+	public List<Question> findBySubjectLike(String kw) {
+		// TODO Auto-generated method stub
+		return questionRepository.findBySubjectLike("%"+kw+"%");
+	}
 }

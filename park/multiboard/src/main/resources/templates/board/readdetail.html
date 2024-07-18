@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+            <h3 th:text="${board.subject}"></h3>
+            <a th:href="${|{reply.create}/${board.bid}|}">reply</a>
+<br>
+<h2>리플 작성</h2>
+<form th:action="@{|reply/create/${board.bid}|}" method="post">
+<input type="text" name="content">
+<input type="submit" value="전송">
+
+</form>
+		<div th:each="reply : ${board.replyList}">
+            <h3 th:text="${reply.content}"></h3>
+        </div>
+
+</body>
+</html>

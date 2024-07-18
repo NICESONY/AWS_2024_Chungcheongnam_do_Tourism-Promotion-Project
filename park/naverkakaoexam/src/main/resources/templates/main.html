@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ <table class="table">
+        <thead class="table-dark">
+        <tr>
+        <th>번호</th>
+            <th>고객번호</th>
+            <th>아이디</th>
+            <th>권한</th>
+			<th>이메일</th>
+            <th>전화</th>
+            <th>주소</th>
+            <th>가입일</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="customer, loop : ${customers}">
+            <td th:text="${customer.cid}"></td>
+            <td><a th:href="@{|/readdetail/${customer.cid}|}" th:text="${customer.cid}"></a></td>
+            <td th:text="${customer.role}"></td>
+            <td th:text="${customer.cemail}"></td>
+            <td th:text="${customer.cphone}"></td>
+            <td th:text="${customer.caddr}"></td>
+            <td th:text="${#temporals.format(customer.cdate, 'yyyy-MM-dd HH:mm')}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/admin/catecreate" method="post">
+<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+<p>카테고리 내용을 입력하세요.
+<input type="text"name="name">
+<input type="submit"value="등록">
+
+</form>
+</body>
+</html>

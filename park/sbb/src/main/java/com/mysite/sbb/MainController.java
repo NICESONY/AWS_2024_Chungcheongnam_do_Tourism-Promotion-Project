@@ -10,4 +10,8 @@ public class MainController {
 	public String index() {
 		return "redirect:question/list";
 	}
+	@GetMapping("/map")
+	public String map() {
+		return "map";
+	}
 }

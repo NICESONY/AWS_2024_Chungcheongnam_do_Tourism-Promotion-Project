@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1> 제품 등록 </h1>
+<form action="/product/create" method="post">
+<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+<p>제품명 : <input type="text" name="name">
+<p>가격 : <input type="text" name="price">
+<p><input type="submit" value="등록">
+
+</form>
+</body>
+</html>

@@ -5,20 +5,31 @@
 
 
 
-<div class="container my-3">
+<div class="container my-3"><nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">Navbar</a>
+    <form action="/question/searchkw" class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" name="kw"aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">검색</button>
+    </form>
+  </div>
+</nav>
     <table class="table">
         <thead class="table-dark">
         <tr>
         <th>번호</th>
             <th>제목</th>
             <th>작성일시</th>
+            <th>분류</th>
         </tr>
     </thead>
     <tbody>
         <tr th:each="question, loop : ${questionList}">
             <td th:text="${loop.count}"></td>
             <td><a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a></td>
+                        
             <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+            <td th:text="${question.cate}"></td>
         </tr>
     </tbody>
 </table>

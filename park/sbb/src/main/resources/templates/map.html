@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Maps Example</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBW70To4IlerhsbJmsf_pWs3Vdgfnd5asE"></script>
+    <script>
+        function initMap() {
+            var location = { lat: 37.5666805, lng: 126.9784147 }; // 예시 좌표
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 20,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <h1>Google Maps in Spring Boot</h1>
+    <div id="map" style="height: 500px; width: 100%;"></div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/board/create" method="post">
+<input type="hidden" name="type" th:value="${type}">
+<p>제목 : <input type="text" name="subject">
+<p>내용 : <input type="text" name="content">
+<p> <input type="submit" value="등록">
+ 
+</form>
+</body>
+</html>

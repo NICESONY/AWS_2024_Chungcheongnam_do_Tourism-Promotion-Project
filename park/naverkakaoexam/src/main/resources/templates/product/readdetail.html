@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+
+<script>
+
+IMP.init("imp64640657"); // 예: 'imp00000000'
+
+
+function requestPay() {
+IMP.request_pay(
+		  {
+		    pg: "danal_tpay",
+		    pay_method: "card",
+		    merchant_uid: "membership" + uuid(), // 주문 고유 번호, 항상 달라져야 한다. 
+		    name: "[[${product.name}]]",
+		    amount: "[[${product.price}]]",
+		    buyer_email: "[[${customer.cemail}]]",
+		    buyer_name: "[[${customer.username}]]",
+		    buyer_tel: "[[${customer.cphone}]]",
+		    buyer_addr: "[[${customer.caddr}]]",
+		    buyer_postcode: "01181",
+		  },
+		  function (response) {
+		    //결제 결과 처리
+			  if(response.success){
+			    	location.href='/product/result?imp_uid=' + response.imp_uid;
+			    }
+		  },
+		);
+
+}
+
+function uuid() {
+	function _s4() {
+		return ((1 + Math.random()) * 0x10000 | 0).toString(16)
+				.substring(1);
+	}
+	return _s4() + _s4() + '-' + _s4() + '-' + _s4() + '-' + _s4()
+			+ '-' + _s4() + _s4() + _s4();
+}
+
+console.log(uuid())
+</script>
+            <h3 th:text="${product.name}"></h3>
+            <h3 th:text="${product.price}"></h3>
+            <button onclick="requestPay()">결제</button>
+
+
+</body>
+</html>

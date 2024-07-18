@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+        <div th:each="board, loop : ${boards}">
+            [[${loop.count}]]
+            <a th:href="@{|/board/readdetail/${board.id}|}" th:text="${board.subject}">
+        </div>
+
+
+<br>
+<a th:href="@{|/board/create/${type}|}"> 글 작성 </a>
+</body>
+</html>	
