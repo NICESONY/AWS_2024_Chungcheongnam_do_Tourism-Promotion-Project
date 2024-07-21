@@ -153,35 +153,7 @@ geocoder.addressSearch('[[${question.addr}]]', function(result, status) {
         });
 
         // 인포윈도우로 장소에 대한 설명을 표시합니다
-        var infowindow = new kakao.maps.InfoWindow({
-            content: ''
-        });
-        infowindow.open(map1, marker);
-
-        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-        map1.setCenter(coords);
-    } 
-}); 
-//로드뷰 toggle함수
-function toggleRoadview(position){
-
-    //전달받은 좌표(position)에 가까운 로드뷰의 panoId를 추출하여 로드뷰를 띄웁니다
-    rvClient.getNearestPanoId(position, 50, function(panoId) {
-        if (panoId === null) {
-            rvContainer.style.display = 'none'; //로드뷰를 넣은 컨테이너를 숨깁니다
-            mapWrapper.style.width = '100%';
-            map1.relayout();
-        } else {
-            mapWrapper.style.width = '50%';
-            map1.relayout(); //지도를 감싸고 있는 영역이 변경됨에 따라, 지도를 재배열합니다
-            rvContainer.style.display = 'block'; //로드뷰를 넣은 컨테이너를 보이게합니다
-            rv.setPanoId(panoId, position); //panoId를 통한 로드뷰 실행
-            rv.relayout(); //로드뷰를 감싸고 있는 영역이 변경됨에 따라, 로드뷰를 재배열합니다
-        }
-    });
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBW70To4IlerhsbJmsf_pWs3Vdgfnd5asE&language=en"></script>
+        var infowindow = new kakao.maps.InfoWindow(요"></script>
     <script>
         function initMap() {
             var location = { lat: 37.5666805, lng: 126.9784147 }; // 예시 좌표
